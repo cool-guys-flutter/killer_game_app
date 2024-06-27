@@ -10,6 +10,8 @@ import 'ui/pages/finish_page.dart';
 
 import 'providers/user_provider.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+
 void main() {
   runApp(
     ProviderScope(
@@ -41,6 +43,11 @@ class _MyApp extends ConsumerState<MyApp> {
           "/distribution": (context) => DistributionPage(),
           "/finish": (context) => FinishPage(),
         },
+        theme: ThemeData(
+          textTheme: GoogleFonts.josefinSansTextTheme(
+            
+          ),
+        ),
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../providers/user_provider.dart';
+
 
 class HelloPage extends ConsumerStatefulWidget {
   HelloPage({super.key});
@@ -19,9 +19,11 @@ class _HelloPage extends ConsumerState<HelloPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome to Killer Game'),
-        automaticallyImplyLeading: false
+        title: const Text('Welcome to Killer Game', style: TextStyle(color: Colors.white)),
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xff212121),
       ),
+      backgroundColor: Color(0xff212121),
       body: Center(
         child: 
         Container(
@@ -36,8 +38,20 @@ class _HelloPage extends ConsumerState<HelloPage> {
             children: <Widget>[
               Column(
                 children: [
-                  const Icon(Icons.abc, size: 100),
-                  Text("Page $currentPage")
+                // Container(
+                //   decoration: BoxDecoration(
+                //     color: Color(0xff212121),
+                //   ),
+                //   child: Column(
+                //   children: [
+                //     const Icon(Icons.abc, size: 100),
+                //     Text("Page $currentPage",style: TextStyle(color: Colors.white),)
+                //   ],
+                //   ),
+                //),
+                const Icon(Icons.abc, size: 100),
+                    Text("Page $currentPage",style: TextStyle(color: Colors.white),)
+                  
                 ],
               ),
               Column(
