@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/user_provider.dart';
 
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 class HelloPage extends ConsumerStatefulWidget {
   HelloPage({super.key});
@@ -38,19 +40,16 @@ class _HelloPage extends ConsumerState<HelloPage> {
             children: <Widget>[
               Column(
                 children: [
-                // Container(
-                //   decoration: BoxDecoration(
-                //     color: Color(0xff212121),
-                //   ),
-                //   child: Column(
-                //   children: [
-                //     const Icon(Icons.abc, size: 100),
-                //     Text("Page $currentPage",style: TextStyle(color: Colors.white),)
-                //   ],
-                //   ),
-                //),
-                const Icon(Icons.abc, size: 100),
-                    Text("Page $currentPage",style: TextStyle(color: Colors.white),)
+                    SvgPicture.asset('assets/images/phone.svg', width: 400, height: 400,semanticsLabel: "Phone",),
+                
+                    Text("KILLER IS A GAME THAT WILL TEST YOUR STEALTH",style: TextStyle(
+              color: Colors.white,
+              fontSize: 28,
+              fontStyle: FontStyle.italic,
+              fontFamily: 'Josefin Sans',
+              fontWeight: FontWeight.w500,
+              height: 0,
+            ),)
                   
                 ],
               ),
