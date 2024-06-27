@@ -8,20 +8,31 @@ import 'ui/pages/history_page.dart';
 import 'ui/pages/distribution_page.dart';
 import 'ui/pages/finish_page.dart';
 
+import 'providers/user_provider.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ProviderScope(
+      child: MyApp()
+    )
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends ConsumerStatefulWidget {
+  MyApp({super.key});
 
+  @override
+  ConsumerState<MyApp> createState() => _MyApp();
+}
+
+class _MyApp extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Killer Game",
-        initialRoute: "/",
+        initialRoute: (ref.read(userProvider.notifier).getUserNewness()) ? "/hello" : "/",
         routes: {
           "/": (context) =>  MainPage(),
           "/hello": (context) => HelloPage(),

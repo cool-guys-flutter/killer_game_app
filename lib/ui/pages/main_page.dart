@@ -14,6 +14,7 @@ class _MainPage extends ConsumerState<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Killer Game'),
+        automaticallyImplyLeading: false
       ),
       body: const Center(
         child: Text('Here are icon of the game, buttons to history, setup and rules'),
