@@ -2,27 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class MainPage extends ConsumerStatefulWidget {
+class MainPage extends ConsumerWidget {
   MainPage({super.key});
 
   @override
-  ConsumerState<MainPage> createState() => _MainPage();
-}
-
-class _MainPage extends ConsumerState<MainPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [GradientScreen()],
-      ),
-    );
-  }
-}
-
-class GradientScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -54,7 +38,7 @@ class GradientScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 250,
+                    height: 350,
                   ),
                   Text(
                     'KILLER',
@@ -64,6 +48,40 @@ class GradientScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: StadiumBorder(),
+                      side: BorderSide(width: 2, color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/setup");
+                    },
+                    child: Text(
+                      'NEW GAME',
+                      style: TextStyle(
+                        height: 2,
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/hello");
+                    },
+                    child: Text(
+                      'RULES',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.white,
+                      ),
+                    ),
+                  )
                 ],
               )
             ],
