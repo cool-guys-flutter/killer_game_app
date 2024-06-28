@@ -10,13 +10,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    # Add this line
 
 
   cupertino_icons: ^1.0.6
   flutter_riverpod: ^2.5.1
   shared_preferences: ^2.2.3
   google_fonts: ^6.2.1
-  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -26,9 +26,10 @@ dev_dependencies:
 
 
 flutter:
-
+  generate: true
   assets:
-    - assets/images/phone.svg
-    - assets/circle.svg
+    - assets/images/
+    - assets/
 
   uses-material-design: true
+
