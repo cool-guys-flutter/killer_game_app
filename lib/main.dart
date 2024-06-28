@@ -13,6 +13,7 @@ import 'providers/user_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -46,6 +47,7 @@ class _MyApp extends ConsumerState<MyApp> {
           textTheme: GoogleFonts.josefinSansTextTheme(),
         ),
         localizationsDelegates: [
+          AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
