@@ -12,13 +12,10 @@ import 'providers/user_provider.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
-  runApp(
-    ProviderScope(
-      child: MyApp()
-    )
-  );
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerStatefulWidget {
@@ -35,9 +32,10 @@ class _MyApp extends ConsumerState<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Killer Game",
-        initialRoute: (ref.read(userProvider.notifier).getUserNewness()) ? "/hello" : "/",
+        initialRoute:
+            (ref.read(userProvider.notifier).getUserNewness()) ? "/hello" : "/",
         routes: {
-          "/": (context) =>  MainPage(),
+          "/": (context) => MainPage(),
           "/hello": (context) => HelloPage(),
           "/setup": (context) => SetupPage(),
           "/history": (context) => HistoryPage(),
@@ -47,6 +45,15 @@ class _MyApp extends ConsumerState<MyApp> {
         theme: ThemeData(
           textTheme: GoogleFonts.josefinSansTextTheme(),
         ),
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en'), // English
+          Locale('es'), // Spanish
+        ],
       ),
     );
   }
