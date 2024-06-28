@@ -10,7 +10,7 @@ class SetupPage extends ConsumerStatefulWidget {
 }
 
 class _SetupPage extends ConsumerState<SetupPage> {
-  List<TextField> playersList = List.empty(growable: true);
+  List<TextFormField> playersList = List.empty(growable: true);
 
   TextEditingController _controller = TextEditingController();
 
@@ -127,26 +127,64 @@ class _SetupPage extends ConsumerState<SetupPage> {
                           currentValue++;
                           _controller.text = currentValue.toString();
                         });
-                        playersList.add(TextField());
+
+                        playersList.add(
+                          TextFormField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Color.fromARGB(126, 70, 63, 63),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: Colors.white,
+                                ),
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: Colors.white,
+                                ),
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 2,
+                                  color: Colors.white,
+                                ),
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                            ),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25,
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ],
                 ),
               ),
-              playersList.isEmpty
-                  ? Text(
-                      'Add players to start game',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
+              SizedBox(
+                height: 300,
+                width: 250,
+                child: playersList.isEmpty
+                    ? Text(
+                        'Add players to start game',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      )
+                    : Expanded(
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: playersList.length,
+                          itemBuilder: (context, index) => getRow(index),
+                        ),
                       ),
-                    )
-                  : Expanded(
-                      child: ListView.builder(
-                        itemCount: playersList.length,
-                        itemBuilder: (context, index) => getRow(index),
-                      ),
-                    ),
+              ),
               SizedBox(
                 height: 50,
               ),
@@ -175,89 +213,11 @@ class _SetupPage extends ConsumerState<SetupPage> {
   }
 
   Widget getRow(int index) {
-    return playersList[index];
-  }
-}
-
-class NumberInputCounter extends StatefulWidget {
-  @override
-  _NumberInputCounterState createState() => _NumberInputCounterState();
-}
-
-class _NumberInputCounterState extends State<NumberInputCounter> {
-  TextEditingController _controller = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _controller.text = "0";
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        OutlinedButton(
-          child: Text(
-            '-',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-            ),
-          ),
-          style: OutlinedButton.styleFrom(
-            shape: CircleBorder(),
-            side: BorderSide(width: 2, color: Colors.white),
-          ),
-          onPressed: () {
-            setState(() {
-              int currentValue = int.parse(_controller.text);
-              if (currentValue > 0) {
-                currentValue--;
-                _controller.text = currentValue.toString();
-              }
-            });
-          },
-        ),
-        Expanded(
-          child: TextField(
-            controller: _controller,
-            keyboardType: TextInputType.number,
-            textAlign: TextAlign.center,
-            cursorColor: Colors.white,
-            readOnly: true,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 50,
-            ),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              fillColor: Colors.transparent,
-            ),
-          ),
-        ),
-        OutlinedButton(
-          child: Text(
-            '+',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-            ),
-          ),
-          style: OutlinedButton.styleFrom(
-            shape: CircleBorder(),
-            side: BorderSide(width: 2, color: Colors.white),
-          ),
-          onPressed: () {
-            setState(() {
-              int currentValue = int.parse(_controller.text);
-              currentValue++;
-              _controller.text = currentValue.toString();
-            });
-          },
-        ),
-      ],
-    );
+    return Column(children: <Widget>[
+      playersList[index],
+      Divider(
+        color: Colors.transparent,
+      )
+    ]);
   }
 }
