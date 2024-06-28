@@ -1,6 +1,6 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-    }
+    "@@locale": "en",
+    "greating": "Welcome to Killer Game",
+    "rule_1" : "KILLER IS A GAME THAT WILL TEST YOUR STEALTH",
+    "description_1":"THE GAME WILL REQUIRE THIS PHONE AND AT LEAST THREE PEOPLE"
 }
