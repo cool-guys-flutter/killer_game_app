@@ -38,7 +38,7 @@ class MainPage extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 350,
+                    height: 300,
                   ),
                   Text(
                     'KILLER',
