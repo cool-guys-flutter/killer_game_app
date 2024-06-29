@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 class KillerGame {
-  final List<String> players = ["Karina", "Arthur", "Arina"];
+  final List<String> players = [];
   final HashMap<String, String> targets = HashMap();
   late DateTime startTime;
   late Duration duration;
