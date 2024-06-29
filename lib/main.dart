@@ -44,7 +44,7 @@ class _MyApp extends ConsumerState<MyApp> {
           "/finish": (context) => FinishPage(),
         },
         theme: ThemeData(
-          textTheme: GoogleFonts.josefinSansTextTheme(),
+          textTheme: GoogleFonts.josefinSansTextTheme()  
         ),
         localizationsDelegates: [
           AppLocalizations.delegate,
@@ -54,7 +54,7 @@ class _MyApp extends ConsumerState<MyApp> {
         ],
         supportedLocales: [
           Locale('en'), // English
-          Locale('es'), // Spanish
+          Locale('ru'), // Spanish
         ],
       ),
     );
