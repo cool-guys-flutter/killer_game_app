@@ -15,8 +15,18 @@ class _FinishPage extends ConsumerState<FinishPage> {
       appBar: AppBar(
         title: const Text('Finished!'),
       ),
-      body: const Center(
-        child: Text("On this screen we ask to write the name of winner and count duration of the game"),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text("On this screen we ask to write the name of winner and count duration of the game"),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("/");
+              }, 
+              child: Text("Go home"))
+          ]
+        )
       ),
     );
   }

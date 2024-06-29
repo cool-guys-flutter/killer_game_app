@@ -1,5 +1,4 @@
 import 'dart:collection';
-import 'dart:io';
 
 class KillerGame {
   final List<String> players = ["Karina", "Arthur", "Arina"];
