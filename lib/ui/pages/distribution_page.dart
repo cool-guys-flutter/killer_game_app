@@ -66,7 +66,6 @@ class _DistributionPage extends ConsumerState<DistributionPage>
 
   @override
   Widget build(BuildContext context) {
-    print(ref.read(gameProvider.notifier).getPlayers());
     return Scaffold(
       backgroundColor: Color(0x212121),
       body: GestureDetector(

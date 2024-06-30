@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:drop_shadow/drop_shadow.dart';
+import 'package:killer_game_app/providers/user_provider.dart';
 
 class MainPage extends ConsumerWidget {
   MainPage({super.key});

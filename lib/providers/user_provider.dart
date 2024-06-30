@@ -11,9 +11,11 @@ class UserState extends StateNotifier<User> {
 
   Future<void> loadUser() async {
     state = await _localStorageService.getUser();
+    print("Init user state ${state.isNew}");
   }
 
   bool getUserNewness() {
+    print("user state ${state.isNew}");
     return state.isNew;
   }
 

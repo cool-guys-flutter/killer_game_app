@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:killer_game_app/ui/pages/load_page.dart';
 
 import 'ui/pages/hello_page.dart';
 import 'ui/pages/main_page.dart';
@@ -21,21 +22,28 @@ void main() {
 
 class MyApp extends ConsumerStatefulWidget {
   MyApp({super.key});
-
+  
+  
   @override
   ConsumerState<MyApp> createState() => _MyApp();
 }
 
 class _MyApp extends ConsumerState<MyApp> {
   @override
+  void initState() {
+    super.initState();
+    ref.read(userProvider);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Killer Game",
-        initialRoute:
-            (ref.read(userProvider.notifier).getUserNewness()) ? "/hello" : "/",
+        initialRoute: "/load",
         routes: {
+          "/load": (context) => LoadPage(),
           "/": (context) => MainPage(),
           "/hello": (context) => HelloPage(),
           "/setup": (context) => SetupPage(),

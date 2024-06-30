@@ -3,7 +3,7 @@ import 'package:killer_game_app/objects/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
-  User user = User(isNew: false);
+  static User user = User(isNew: true);
 
   Future<void> userReadRules() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
