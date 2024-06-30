@@ -375,22 +375,22 @@ class _HelloPageState extends ConsumerState<HelloPage> {
                 height: 0,
               ),
             )),
-        Text(
-          AppLocalizations.of(context)!.next,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            // Исправлено здесь
+        OutlinedButton(
+          onPressed: (){
+            Navigator.pushNamed(context, "/");
+          }, 
+          child: Text(
+            AppLocalizations.of(context)!.next,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+            ),
+          ),
+          style: OutlinedButton.styleFrom(
+            foregroundColor: Colors.white, minimumSize: Size(250, 70), // Установите цвет текста кнопки
+            side: BorderSide.none, // Убирает границу кнопки
           ),
         ),
-        OutlinedButton(onPressed: (){
-          Navigator.pushNamed(context, "/");
-        }, child: Text("Начать заново"),)
-// style: OutlinedButton.styleFrom(
-//   minimumSize: Size(250, 70),
-//   primary: Colors.white, // Установите цвет текста кнопки
-//   side: BorderSide.none, // Убирает границу кнопки
-//),
       ],
     );
   }

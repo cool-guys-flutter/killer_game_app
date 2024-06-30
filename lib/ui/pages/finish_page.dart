@@ -60,7 +60,7 @@ class _FinishPage extends ConsumerState<FinishPage> {
               Navigator.of(context).pushNamed("/");
             },
             child: Text(
-              'NAME A WINNER',
+              'FINISH!',
               style: TextStyle(
                 height: 2,
                 color: Colors.white,
