@@ -24,3 +24,4 @@ analyzer:
     unnecessary_getters_setters: ignore
     sized_box_for_whitespace: ignore
     unnecessary_const: ignore
+    unnecessary_string_interpolations: ignore
