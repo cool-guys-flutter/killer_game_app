@@ -34,65 +34,73 @@ class MainPage extends ConsumerWidget {
           ),
         ),
         child: Center(
-          child: Stack(
-            alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              DropShadow(
-                child: SvgPicture.asset("assets/images/aims.svg"),
-                color: Color(0xffFF0B4C),
-                opacity: 0.3,
-                blurRadius: 4,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Stack(
+                alignment: Alignment.center,
                 children: [
-                  SizedBox(
-                    height: 300,
+                  DropShadow(
+                    child: SvgPicture.asset("assets/images/aims.svg"),
+                    color: Color(0xffFF0B4C),
+                    opacity: 0.3,
+                    blurRadius: 4,
                   ),
-                  Text(
-                    'KILLER',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 100,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      shape: StadiumBorder(),
-                      side: BorderSide(width: 2, color: Colors.white),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/setup");
-                    },
-                    child: Text(
-                      'NEW GAME',
-                      style: TextStyle(
-                        height: 2,
-                        color: Colors.white,
-                        fontSize: 30,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 380,
                       ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/hello");
-                    },
-                    child: Text(
-                      'RULES',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.white,
+                      Text(
+                        'KILLER',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 100,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          shape: StadiumBorder(),
+                          side: BorderSide(width: 2, color: Colors.white),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/setup");
+                        },
+                        child: Text(
+                          'NEW GAME',
+                          style: TextStyle(
+                            height: 2,
+                            color: Colors.white,
+                            fontSize: 30,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/hello");
+                        },
+                        child: Text(
+                          'RULES',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.white,
+                          ),
+                        ),
+                      )
+                    ],
                   )
                 ],
-              )
+              ),
+              SizedBox(
+                height: 100,
+              ),
             ],
           ),
         ),

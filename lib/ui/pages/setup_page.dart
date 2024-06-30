@@ -49,12 +49,12 @@ class _SetupPage extends ConsumerState<SetupPage> {
               Text(
                 'SETTINGS',
                 style: TextStyle(
-                  fontSize: 50,
+                  fontSize: 45,
                   color: Colors.white,
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               SvgPicture.asset('assets/players.svg'),
               SizedBox(
@@ -172,14 +172,17 @@ class _SetupPage extends ConsumerState<SetupPage> {
                 ),
               ),
               SizedBox(
-                height: 300,
-                width: 250,
+                height: 20,
+              ),
+              SizedBox(
+                height: 275,
+                width: 300,
                 child: playersList.isEmpty
                     ? Text(
                         'Add players to start game',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 24,
                         ),
                       )
                     : SizedBox(
@@ -195,6 +198,7 @@ class _SetupPage extends ConsumerState<SetupPage> {
               ),
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 60),
                   shape: StadiumBorder(),
                   side: BorderSide(width: 2, color: Colors.white),
                 ),
@@ -221,6 +225,9 @@ class _SetupPage extends ConsumerState<SetupPage> {
                     fontSize: 30,
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 60,
               ),
             ],
           ),
