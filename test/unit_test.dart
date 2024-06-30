@@ -7,7 +7,7 @@ bool getPlayers() {
   game.addPlayer("Arthur");
   game.addPlayer("Karina");
   game.addPlayer("Arina");
-  return game.players.length == 6;
+  return game.players.length == 3;
 }
 
 bool userIsNew() {

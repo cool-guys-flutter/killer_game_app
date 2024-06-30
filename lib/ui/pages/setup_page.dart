@@ -200,7 +200,7 @@ class _SetupPage extends ConsumerState<SetupPage> {
                 onPressed: () {
                   if (controllers.length > 2) {
                     for (var contr in controllers) {
-                      GameState().addPlayer(contr.text);
+                      ref.read(gameProvider.notifier).addPlayer(contr.text);
                     }
                     Navigator.pushNamed(context, "/distribution");
                   } else {
