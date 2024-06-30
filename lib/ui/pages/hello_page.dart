@@ -377,6 +377,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             )),
         OutlinedButton(
           onPressed: (){
+            ref.read(userProvider.notifier).userReadRules();
             Navigator.pushNamed(context, "/");
           }, 
           child: Text(
