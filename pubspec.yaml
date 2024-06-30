@@ -5,13 +5,11 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
+  sdk: ">=3.4.1 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-    # Add this line
-
 
   cupertino_icons: ^1.0.6
   flutter_riverpod: ^2.5.1
@@ -22,6 +20,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_page_view_indicator: ^0.0.5
+  drop_shadow: ^0.1.0
 
 dev_dependencies:
   flutter_test:

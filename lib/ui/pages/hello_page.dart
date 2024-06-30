@@ -9,7 +9,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_page_view_indicator/flutter_page_view_indicator.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 
 class HelloPage extends ConsumerStatefulWidget {
   HelloPage({Key? key}) : super(key: key);
@@ -384,6 +383,9 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             // Исправлено здесь
           ),
         ),
+        OutlinedButton(onPressed: (){
+          Navigator.pushNamed(context, "/");
+        }, child: Text("Начать заново"),)
 // style: OutlinedButton.styleFrom(
 //   minimumSize: Size(250, 70),
 //   primary: Colors.white, // Установите цвет текста кнопки
