@@ -100,7 +100,7 @@ class _DistributionPage extends ConsumerState<DistributionPage> with SingleTicke
       ),
     );
   }
- 
+
   Widget _buildBack(String name, String target) {
     return Transform(
       alignment: Alignment.center,

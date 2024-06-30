@@ -383,6 +383,9 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             // Исправлено здесь
           ),
         ),
+        OutlinedButton(onPressed: (){
+          Navigator.pushNamed(context, "/");
+        }, child: Text("Начать заново"),)
 // style: OutlinedButton.styleFrom(
 //   minimumSize: Size(250, 70),
 //   primary: Colors.white, // Установите цвет текста кнопки
