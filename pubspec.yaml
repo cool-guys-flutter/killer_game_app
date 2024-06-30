@@ -21,6 +21,7 @@ dependencies:
     sdk: flutter
   flutter_page_view_indicator: ^0.0.5
   drop_shadow: ^0.1.0
+  neon_widgets: ^2.0.0
 
 dev_dependencies:
   flutter_test:
