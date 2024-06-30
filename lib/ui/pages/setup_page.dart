@@ -198,10 +198,19 @@ class _SetupPage extends ConsumerState<SetupPage> {
                   side: BorderSide(width: 2, color: Colors.white),
                 ),
                 onPressed: () {
-                  for (var contr in controllers) {
-                    ref.read(gameProvider.notifier).addPlayer(contr.text);
+                  if (controllers.length > 2) {
+                    for (var contr in controllers) {
+                      GameState().addPlayer(contr.text);
+                    }
+                    Navigator.pushNamed(context, "/distribution");
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: Colors.red,
+                        content: Text('Add at least 3 players'),
+                      ),
+                    );
                   }
-                  Navigator.pushNamed(context, "/distribution");
                 },
                 child: Text(
                   'START',
