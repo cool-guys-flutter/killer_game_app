@@ -8,10 +8,6 @@ on:
 
 jobs:
   build:
-    permissions:
-      contents: read
-      pages: write  
-      
     runs-on: windows-latest
 
     steps:
