@@ -199,7 +199,7 @@ class _SetupPage extends ConsumerState<SetupPage> {
                 ),
                 onPressed: () {
                   for (var contr in controllers) {
-                    GameState().addPlayer(contr.text);
+                    ref.read(gameProvider.notifier).addPlayer(contr.text);
                   }
                   Navigator.pushNamed(context, "/distribution");
                 },
