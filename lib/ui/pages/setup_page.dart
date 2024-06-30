@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:killer_game_app/providers/game_provider.dart';
 
 class SetupPage extends ConsumerStatefulWidget {
   SetupPage({super.key});
@@ -11,6 +12,7 @@ class SetupPage extends ConsumerStatefulWidget {
 
 class _SetupPage extends ConsumerState<SetupPage> {
   List<TextFormField> playersList = List.empty(growable: true);
+  List<TextEditingController> controllers = List.empty(growable: true);
 
   TextEditingController _controller = TextEditingController();
 
@@ -90,6 +92,7 @@ class _SetupPage extends ConsumerState<SetupPage> {
                           }
                         });
                         playersList.remove(playersList.last);
+                        controllers.remove(controllers.last);
                       },
                     ),
                     Expanded(
@@ -127,9 +130,10 @@ class _SetupPage extends ConsumerState<SetupPage> {
                           currentValue++;
                           _controller.text = currentValue.toString();
                         });
-
+                        controllers.add(TextEditingController());
                         playersList.add(
                           TextFormField(
+                            controller: controllers.last,
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Color.fromARGB(126, 70, 63, 63),
@@ -177,7 +181,7 @@ class _SetupPage extends ConsumerState<SetupPage> {
                           fontSize: 20,
                         ),
                       )
-                    : Expanded(
+                    : SizedBox(
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           itemCount: playersList.length,
@@ -194,6 +198,9 @@ class _SetupPage extends ConsumerState<SetupPage> {
                   side: BorderSide(width: 2, color: Colors.white),
                 ),
                 onPressed: () {
+                  for (var contr in controllers) {
+                    GameState().addPlayer(contr.text);
+                  }
                   Navigator.pushNamed(context, "/distribution");
                 },
                 child: Text(
