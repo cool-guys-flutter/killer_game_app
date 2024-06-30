@@ -22,6 +22,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_page_view_indicator: ^0.0.5
+  drop_shadow: ^0.1.0
 
 dev_dependencies:
   flutter_test:

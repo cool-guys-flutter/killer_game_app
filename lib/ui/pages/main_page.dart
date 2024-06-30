@@ -2,27 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:drop_shadow/drop_shadow.dart';
+
 class MainPage extends ConsumerWidget {
   MainPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(
             colors: [
-              Color.fromARGB(255, 51, 61, 246),
-              Color.fromARGB(255, 172, 0, 211),
-              Color.fromARGB(255, 228, 0, 163),
-              Color.fromARGB(255, 255, 0, 115),
-              Color.fromARGB(255, 255, 0, 64),
-              Color.fromARGB(255, 255, 0, 0),
-              Color.fromARGB(255, 255, 0, 64),
-              Color.fromARGB(255, 255, 0, 115),
-              Color.fromARGB(255, 228, 0, 163),
-              Color.fromARGB(255, 172, 0, 211),
-              Color.fromARGB(255, 51, 61, 246),
+              Color.fromARGB(255, 51, 61, 246).withOpacity(0.75),
+              Color.fromARGB(255, 172, 0, 211).withOpacity(0.75),
+              Color.fromARGB(255, 228, 0, 163).withOpacity(0.75),
+              Color.fromARGB(255, 255, 0, 115).withOpacity(0.75),
+              Color.fromARGB(255, 255, 0, 64).withOpacity(0.75),
+              Color.fromARGB(255, 255, 0, 0).withOpacity(0.75),
+              Color.fromARGB(255, 255, 0, 64).withOpacity(0.75),
+              Color.fromARGB(255, 255, 0, 115).withOpacity(0.75),
+              Color.fromARGB(255, 228, 0, 163).withOpacity(0.75),
+              Color.fromARGB(255, 172, 0, 211).withOpacity(0.75),
+              Color.fromARGB(255, 51, 61, 246).withOpacity(0.75),
             ],
             stops: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
             center: Alignment.topRight,
@@ -33,7 +36,12 @@ class MainPage extends ConsumerWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              SvgPicture.asset("assets/circle.svg"),
+              DropShadow(
+                child: SvgPicture.asset("assets/images/aims.svg"),
+                color: Color(0xffFF0B4C),
+                opacity: 0.3,
+                blurRadius: 4,
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
