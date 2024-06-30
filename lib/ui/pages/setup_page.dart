@@ -206,7 +206,7 @@ class _SetupPage extends ConsumerState<SetupPage> {
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        backgroundColor: Colors.red,
+                        backgroundColor: Color(0x212121),
                         content: Text('Add at least 3 players'),
                       ),
                     );
