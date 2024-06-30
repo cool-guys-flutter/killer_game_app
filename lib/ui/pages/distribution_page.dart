@@ -93,12 +93,12 @@ class _DistributionPage extends ConsumerState<DistributionPage>
         decoration: BoxDecoration(
           gradient: RadialGradient(
             colors: [
-              Color.fromARGB(255, 255, 0, 0),
-              Color.fromARGB(255, 255, 0, 64),
-              Color.fromARGB(255, 255, 0, 115),
-              Color.fromARGB(255, 228, 0, 163),
-              Color.fromARGB(255, 172, 0, 211),
-              Color.fromARGB(255, 51, 61, 246),
+              Color.fromARGB(255, 181, 0, 0),
+              Color.fromARGB(255, 161, 0, 40),
+              Color.fromARGB(255, 177, 0, 80),
+              Color.fromARGB(255, 149, 0, 107),
+              Color.fromARGB(255, 121, 0, 148),
+              Color.fromARGB(255, 26, 32, 127),
             ],
             stops: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
             center: Alignment.topLeft,
@@ -107,7 +107,6 @@ class _DistributionPage extends ConsumerState<DistributionPage>
           borderRadius: BorderRadius.all(
             Radius.circular(20.0),
           ),
-          color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: const Color.fromARGB(255, 37, 30, 233),
@@ -198,12 +197,12 @@ class _DistributionPage extends ConsumerState<DistributionPage>
         decoration: BoxDecoration(
           gradient: RadialGradient(
             colors: [
-              Color.fromARGB(255, 255, 0, 0),
-              Color.fromARGB(255, 255, 0, 64),
-              Color.fromARGB(255, 255, 0, 115),
-              Color.fromARGB(255, 228, 0, 163),
-              Color.fromARGB(255, 172, 0, 211),
-              Color.fromARGB(255, 51, 61, 246),
+              Color.fromARGB(255, 181, 0, 0),
+              Color.fromARGB(255, 161, 0, 40),
+              Color.fromARGB(255, 177, 0, 80),
+              Color.fromARGB(255, 149, 0, 107),
+              Color.fromARGB(255, 121, 0, 148),
+              Color.fromARGB(255, 26, 32, 127),
             ],
             stops: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
             center: Alignment.topLeft,

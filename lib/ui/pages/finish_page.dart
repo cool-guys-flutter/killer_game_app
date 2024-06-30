@@ -12,6 +12,7 @@ class _FinishPage extends ConsumerState<FinishPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(

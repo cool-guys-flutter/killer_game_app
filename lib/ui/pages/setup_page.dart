@@ -25,16 +25,17 @@ class _SetupPage extends ConsumerState<SetupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(
             colors: [
-              Color.fromARGB(255, 255, 0, 0),
-              Color.fromARGB(255, 255, 0, 64),
-              Color.fromARGB(255, 255, 0, 115),
-              Color.fromARGB(255, 228, 0, 163),
-              Color.fromARGB(255, 172, 0, 211),
-              Color.fromARGB(255, 51, 61, 246),
+              Color.fromARGB(255, 255, 0, 0).withOpacity(0.75),
+              Color.fromARGB(255, 255, 0, 64).withOpacity(0.75),
+              Color.fromARGB(255, 255, 0, 115).withOpacity(0.75),
+              Color.fromARGB(255, 228, 0, 163).withOpacity(0.75),
+              Color.fromARGB(255, 172, 0, 211).withOpacity(0.75),
+              Color.fromARGB(255, 51, 61, 246).withOpacity(0.75),
             ],
             stops: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
             center: Alignment.topLeft,
