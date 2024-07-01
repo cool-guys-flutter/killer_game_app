@@ -10,7 +10,6 @@ import 'ui/pages/distribution_page.dart';
 import 'ui/pages/finish_page.dart';
 
 import 'providers/user_provider.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
