@@ -9,6 +9,12 @@ void main() {
       home: MainPage(),
     ));
 
-    expect(find.text('KILLER'), findsOneWidget);
+    expect(find.byWidget(
+        SizedBox(
+          height: 20,
+        ),
+      ), 
+      findsOneWidget
+    );
   });
 }
