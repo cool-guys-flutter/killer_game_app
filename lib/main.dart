@@ -52,7 +52,7 @@ class _MyApp extends ConsumerState<MyApp> {
           "/finish": (context) => FinishPage(),
         },
         theme: ThemeData(
-          textTheme: GoogleFonts.josefinSansTextTheme()  
+          textTheme: GoogleFonts.playTextTheme(),  
         ),
         localizationsDelegates: [
           AppLocalizations.delegate,

@@ -3,7 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:drop_shadow/drop_shadow.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:killer_game_app/providers/user_provider.dart';
+
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainPage extends ConsumerWidget {
   MainPage({super.key});
@@ -69,11 +73,12 @@ class MainPage extends ConsumerWidget {
                       Navigator.pushNamed(context, "/setup");
                     },
                     child: Text(
-                      'NEW GAME',
+                      AppLocalizations.of(context)!.new_game,
                       style: TextStyle(
                         height: 2,
                         color: Colors.white,
                         fontSize: 30,
+                        fontFamily: GoogleFonts.comfortaa().fontFamily,
                       ),
                     ),
                   ),
@@ -82,15 +87,16 @@ class MainPage extends ConsumerWidget {
                       Navigator.pushNamed(context, "/hello");
                     },
                     child: Text(
-                      'RULES',
+                      AppLocalizations.of(context)!.rules,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,
                         decoration: TextDecoration.underline,
                         decorationColor: Colors.white,
+                        fontFamily: GoogleFonts.comfortaa().fontFamily,
                       ),
                     ),
-                  )
+                  ),
                 ],
               )
             ],

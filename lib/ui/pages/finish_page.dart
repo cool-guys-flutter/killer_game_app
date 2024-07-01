@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+
 class FinishPage extends ConsumerStatefulWidget {
   FinishPage({super.key});
 
@@ -12,28 +19,8 @@ class _FinishPage extends ConsumerState<FinishPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0x212121),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: [
-              Color.fromARGB(255, 51, 61, 246).withOpacity(0.75),
-              Color.fromARGB(255, 172, 0, 211).withOpacity(0.75),
-              Color.fromARGB(255, 228, 0, 163).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 115).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 64).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 0).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 64).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 115).withOpacity(0.75),
-              Color.fromARGB(255, 228, 0, 163).withOpacity(0.75),
-              Color.fromARGB(255, 172, 0, 211).withOpacity(0.75),
-              Color.fromARGB(255, 51, 61, 246).withOpacity(0.75),
-            ],
-            stops: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
-            center: Alignment.topRight,
-            radius: 2.0,
-          ),
-        ),
         child: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -41,7 +28,7 @@ class _FinishPage extends ConsumerState<FinishPage> {
             height: 200,
           ),
           Text(
-            "THE GAME IS ON",
+            AppLocalizations.of(context)!.game_on,
             style: TextStyle(
               color: Colors.white,
               fontSize: 40,
@@ -57,11 +44,9 @@ class _FinishPage extends ConsumerState<FinishPage> {
               shape: StadiumBorder(),
               side: BorderSide(width: 2, color: Colors.white),
             ),
-            onPressed: () {
-              Navigator.of(context).pushNamed("/");
-            },
+            onPressed: () => Navigator.of(context).pushNamed("/"),
             child: Text(
-              'FINISH!',
+              AppLocalizations.of(context)!.finish,
               style: TextStyle(
                 height: 2,
                 color: Colors.white,

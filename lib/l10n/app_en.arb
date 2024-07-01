@@ -13,5 +13,19 @@
     "description_5":"KILLED? YOU GET A NEW GOAL — THE FORMER GOAL OF YOUR PREVIOUS GOAL",
     "rule_6" : " LAST ONE STANDING",
     "description_6":"THE GAME CONTINUES UNTIL THERE IS ONLY ONE «KILLER» LEFT. HE WILL BE THE WINNER!",
-    "next" : "Continue"
+    "next" : "Continue",
+    "new_game" : "NEW GAME",
+    "rules" : "RULES",
+    "settings" : "SETTINGS",
+    "num_players" : "NUMBER OF PLAYERS",
+    "rule_add" : "Add players to start game",
+    "start" : "START",
+    "rules_3" : "Add at least 3 players",
+    "player" : "PLAYER",
+    "click" : "CLICK TO FIND OUT\n WHO YOUR TARGET IS",
+    "find" : "FIND OUT",
+    "target" : "YOUR TARGET",
+    "ok" : "OKAY",
+    "game_on" : "THE GAME IS ON",
+    "finish" : "FINISH"
 }
