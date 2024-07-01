@@ -8,6 +8,12 @@ import 'dart:math' as math;
 import 'package:killer_game_app/providers/game_provider.dart';
 import 'package:neon_widgets/neon_widgets.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
+
 class DistributionPage extends ConsumerStatefulWidget {
   DistributionPage({super.key});
 
@@ -69,7 +75,6 @@ class _DistributionPage extends ConsumerState<DistributionPage>
     return Scaffold(
       backgroundColor: Color(0x212121),
       body: GestureDetector(
-        onTap: _flipCard,
         child: Center(
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.98,
@@ -133,10 +138,11 @@ class _DistributionPage extends ConsumerState<DistributionPage>
               ),
             ),
             Text(
-              'PLAYER',
+              AppLocalizations.of(context)!.player,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 35,
+                fontFamily: GoogleFonts.comfortaa().fontFamily,
                 decoration: TextDecoration.underline,
                 decorationColor: Colors.white,
                 fontWeight: FontWeight.normal,
@@ -157,10 +163,14 @@ class _DistributionPage extends ConsumerState<DistributionPage>
               text: TextSpan(
                 style: TextStyle(
                   color: const Color.fromARGB(169, 255, 255, 255),
-                  fontSize: 26,
+                  fontSize: 24,
                 ),
                 children: <TextSpan>[
-                  TextSpan(text: 'CLICK TO FIND OUT\n WHO YOUR TARGET IS'),
+                  TextSpan(
+                      text: AppLocalizations.of(context)!.click,
+                      style: TextStyle(
+                        fontFamily: GoogleFonts.comfortaa().fontFamily,
+                      )),
                 ],
               ),
             ),
@@ -169,13 +179,17 @@ class _DistributionPage extends ConsumerState<DistributionPage>
             ),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 30,
+                ),
                 shape: StadiumBorder(),
                 side: BorderSide(width: 2, color: Colors.white),
               ),
               onPressed: _flipCard,
               child: Text(
-                'FIND OUT',
+                AppLocalizations.of(context)!.find,
                 style: TextStyle(
+                  fontFamily: GoogleFonts.comfortaa().fontFamily,
                   height: 2,
                   color: Colors.white,
                   fontSize: 30,
@@ -225,8 +239,9 @@ class _DistributionPage extends ConsumerState<DistributionPage>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'YOUR TARGET',
+              AppLocalizations.of(context)!.target,
               style: TextStyle(
+                fontFamily: GoogleFonts.comfortaa().fontFamily,
                 color: Colors.white,
                 fontSize: 40,
                 decoration: TextDecoration.underline,
@@ -234,7 +249,7 @@ class _DistributionPage extends ConsumerState<DistributionPage>
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 70,
             ),
             Stack(
               alignment: Alignment.center,
@@ -251,27 +266,45 @@ class _DistributionPage extends ConsumerState<DistributionPage>
                 ),
                 Text(
                   '$target',
-                  style: TextStyle(color: Colors.white, fontSize: 70),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 70,
+                  ),
                 ),
               ],
             ),
             SizedBox(
-              height: 60,
+              height: 70,
             ),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 50,
+                ),
                 shape: StadiumBorder(),
                 side: BorderSide(width: 2, color: Colors.white),
               ),
               onPressed: _flipCard,
-              child: Text(
-                'OKAY',
-                style: TextStyle(
-                  height: 2,
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.ok,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontFamily: GoogleFonts.comfortaa().fontFamily,
+                      fontWeight: FontWeight.w400,
+                      height: 2,
+                    ),
+                  ),
+                ],
               ),
+            ),
+            SizedBox(
+              height: 60,
             ),
           ],
         ),

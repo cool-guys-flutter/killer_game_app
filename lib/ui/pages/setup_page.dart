@@ -1,7 +1,15 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:killer_game_app/providers/game_provider.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SetupPage extends ConsumerStatefulWidget {
   SetupPage({super.key});
@@ -15,6 +23,13 @@ class _SetupPage extends ConsumerState<SetupPage> {
   List<TextEditingController> controllers = List.empty(growable: true);
 
   TextEditingController _controller = TextEditingController();
+
+  final String key = "game";
+
+  Future<void> setRunGame() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('key', 'yes');
+  }
 
   @override
   void initState() {
@@ -47,24 +62,26 @@ class _SetupPage extends ConsumerState<SetupPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'SETTINGS',
+                AppLocalizations.of(context)!.settings,
                 style: TextStyle(
                   fontSize: 50,
+                  fontFamily: GoogleFonts.comfortaa().fontFamily,
                   color: Colors.white,
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               SvgPicture.asset('assets/players.svg'),
               SizedBox(
                 height: 10,
               ),
               Text(
-                'NUMBER OF PLAYERS',
+                AppLocalizations.of(context)!.num_players,
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
+                  fontFamily: GoogleFonts.comfortaa().fontFamily,
                 ),
               ),
               SizedBox(
@@ -172,14 +189,21 @@ class _SetupPage extends ConsumerState<SetupPage> {
                 ),
               ),
               SizedBox(
-                height: 300,
-                width: 250,
+                height: 20,
+              ),
+              SizedBox(
+                height: 275,
+                width: 300,
                 child: playersList.isEmpty
                     ? Text(
-                        'Add players to start game',
+                        AppLocalizations.of(context)!.rule_add,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 18,
+                          fontFamily: GoogleFonts.comfortaa().fontFamily,
+                          fontWeight: FontWeight.w400,
+                          height: 0,
                         ),
                       )
                     : SizedBox(
@@ -195,32 +219,41 @@ class _SetupPage extends ConsumerState<SetupPage> {
               ),
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 60),
                   shape: StadiumBorder(),
                   side: BorderSide(width: 2, color: Colors.white),
                 ),
                 onPressed: () {
                   if (controllers.length > 2) {
+                    setRunGame();
                     for (var contr in controllers) {
                       ref.read(gameProvider.notifier).addPlayer(contr.text);
                     }
                     Navigator.pushNamed(context, "/distribution");
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        backgroundColor: Color(0x212121),
-                        content: Text('Add at least 3 players'),
+                      SnackBar(
+                        backgroundColor: Colors.black,
+                        content: Text(
+                          AppLocalizations.of(context)!.rules_3,
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
                       ),
                     );
                   }
                 },
                 child: Text(
-                  'START',
+                  AppLocalizations.of(context)!.start,
                   style: TextStyle(
                     height: 2,
+                    fontFamily: GoogleFonts.comfortaa().fontFamily,
                     color: Colors.white,
                     fontSize: 30,
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 60,
               ),
             ],
           ),
