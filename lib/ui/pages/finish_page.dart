@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+import 'package:killer_game_app/providers/theme.dart';
+
 class FinishPage extends ConsumerStatefulWidget {
   FinishPage({super.key});
 
@@ -11,29 +19,11 @@ class FinishPage extends ConsumerStatefulWidget {
 class _FinishPage extends ConsumerState<FinishPage> {
   @override
   Widget build(BuildContext context) {
+    final themeMode = ref.watch(themeProvider);
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor:
+          (themeMode == ThemeMode.dark ?  Colors.white: Color(0x212121)),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: [
-              Color.fromARGB(255, 51, 61, 246).withOpacity(0.75),
-              Color.fromARGB(255, 172, 0, 211).withOpacity(0.75),
-              Color.fromARGB(255, 228, 0, 163).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 115).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 64).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 0).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 64).withOpacity(0.75),
-              Color.fromARGB(255, 255, 0, 115).withOpacity(0.75),
-              Color.fromARGB(255, 228, 0, 163).withOpacity(0.75),
-              Color.fromARGB(255, 172, 0, 211).withOpacity(0.75),
-              Color.fromARGB(255, 51, 61, 246).withOpacity(0.75),
-            ],
-            stops: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
-            center: Alignment.topRight,
-            radius: 2.0,
-          ),
-        ),
         child: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -41,9 +31,9 @@ class _FinishPage extends ConsumerState<FinishPage> {
             height: 240,
           ),
           Text(
-            "THE GAME IS ON",
+            AppLocalizations.of(context)!.game_on,
             style: TextStyle(
-              color: Colors.white,
+              color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 40,
               decoration: TextDecoration.underline,
               decorationColor: Colors.white,
@@ -58,16 +48,14 @@ class _FinishPage extends ConsumerState<FinishPage> {
                 horizontal: 40,
               ),
               shape: StadiumBorder(),
-              side: BorderSide(width: 2, color: Colors.white),
+              side: BorderSide(width: 2, color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white)),
             ),
-            onPressed: () {
-              Navigator.of(context).pushNamed("/");
-            },
+            onPressed: () => Navigator.of(context).pushNamed("/"),
             child: Text(
-              'FINISH!',
+              AppLocalizations.of(context)!.finish,
               style: TextStyle(
                 height: 2,
-                color: Colors.white,
+                color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
                 fontSize: 30,
               ),
             ),

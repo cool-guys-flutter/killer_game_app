@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:killer_game_app/providers/user_provider.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoadPage extends ConsumerStatefulWidget {
   LoadPage({super.key});
@@ -12,6 +13,7 @@ class LoadPage extends ConsumerStatefulWidget {
 }
 
 class _LoadPage extends ConsumerState<LoadPage> {
+
   @override
   void initState() {
     super.initState();

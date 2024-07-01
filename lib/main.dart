@@ -16,14 +16,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'package:killer_game_app/providers/theme.dart';
+
 void main() {
   runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerStatefulWidget {
   MyApp({super.key});
-  
-  
+
   @override
   ConsumerState<MyApp> createState() => _MyApp();
 }
@@ -37,6 +38,7 @@ class _MyApp extends ConsumerState<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final themeMode = ref.watch(themeProvider);
     return ProviderScope(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -52,8 +54,13 @@ class _MyApp extends ConsumerState<MyApp> {
           "/finish": (context) => FinishPage(),
         },
         theme: ThemeData(
-          textTheme: GoogleFonts.josefinSansTextTheme()  
+          textTheme: GoogleFonts.playTextTheme(),
+          primaryColorLight: Colors.white,
+          primaryColorDark: Colors.black,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
+        darkTheme: ThemeData.dark(),
+        themeMode: themeMode,
         localizationsDelegates: [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -68,4 +75,3 @@ class _MyApp extends ConsumerState<MyApp> {
     );
   }
 }
-
