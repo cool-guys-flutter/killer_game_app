@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_page_view_indicator/flutter_page_view_indicator.dart';
-
+import 'package:killer_game_app/providers/theme.dart';
 
 class HelloPage extends ConsumerStatefulWidget {
   HelloPage({Key? key}) : super(key: key);
@@ -23,12 +23,14 @@ class _HelloPageState extends ConsumerState<HelloPage> {
 
   @override
   Widget build(BuildContext context) {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xff212121),
-      ),
-      backgroundColor: Color(0xff212121),
+    appBar: AppBar(
+      backgroundColor: (themeMode == ThemeMode.dark ? Colors.white : Color(0x212121)),
+    ) ,
+      backgroundColor:
+          (themeMode == ThemeMode.dark ? Colors.white : Color(0x212121)),
       body: PageView.builder(
         itemCount: _pageCount,
         onPageChanged: (int page) {
@@ -85,6 +87,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
   }
 
   Widget _pageZeroContent() {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     // Содержимое первой страницы
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -96,7 +100,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             AppLocalizations.of(context)!.greating,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 34,
               fontStyle: FontStyle.italic,
               fontFamily: 'Josefin Sans',
@@ -110,6 +115,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
   }
 
   Widget _pageOneContent() {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     // Содержимое первой страницы
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -118,6 +125,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           'assets/images/phone.svg',
           width: 400,
           height: 400,
+          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
           semanticsLabel: "Phone",
         ),
         SizedBox(
@@ -127,7 +135,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             AppLocalizations.of(context)!.rule_1,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 28,
               fontStyle: FontStyle.italic,
               fontFamily: 'Josefin Sans',
@@ -143,7 +152,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
               AppLocalizations.of(context)!.description_1,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white,
+                color:
+                    (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
                 fontSize: 18,
                 fontFamily: 'Playwrite NG Modern',
                 fontWeight: FontWeight.w400,
@@ -155,6 +165,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
   }
 
   Widget _pageTwoContent() {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     // Содержимое второй страницы
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -164,6 +176,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
+          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -172,7 +185,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             AppLocalizations.of(context)!.rule_2,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 28,
               fontStyle: FontStyle.italic,
               fontFamily: 'Josefin Sans',
@@ -188,7 +202,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
               AppLocalizations.of(context)!.description_2,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white,
+                color:
+                    (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
                 fontSize: 18,
                 fontFamily: 'Playwrite NG Modern',
                 fontWeight: FontWeight.w400,
@@ -200,6 +215,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
   }
 
   Widget _pageThreeContent() {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     // Содержимое второй страницы
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -209,6 +226,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
+          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -217,7 +235,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             AppLocalizations.of(context)!.rule_3,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 28,
               fontStyle: FontStyle.italic,
               fontFamily: 'Josefin Sans',
@@ -233,7 +252,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
               AppLocalizations.of(context)!.description_3,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white,
+                color:
+                    (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
                 fontSize: 18,
                 fontFamily: 'Playwrite NG Modern',
                 fontWeight: FontWeight.w400,
@@ -245,6 +265,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
   }
 
   Widget _pageFourContent() {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     // Содержимое второй страницы
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -254,6 +276,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
+          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -262,7 +285,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             AppLocalizations.of(context)!.rule_4,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 28,
               fontStyle: FontStyle.italic,
               fontFamily: 'Josefin Sans',
@@ -278,7 +302,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
               AppLocalizations.of(context)!.description_4,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white,
+                color:
+                    (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
                 fontSize: 18,
                 fontFamily: 'Playwrite NG Modern',
                 fontWeight: FontWeight.w400,
@@ -290,6 +315,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
   }
 
   Widget _pageFiveContent() {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     // Содержимое второй страницы
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -299,6 +326,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
+          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -307,7 +335,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             AppLocalizations.of(context)!.rule_5,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 28,
               fontStyle: FontStyle.italic,
               fontFamily: 'Josefin Sans',
@@ -323,7 +352,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
               AppLocalizations.of(context)!.description_5,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white,
+                color:
+                    (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
                 fontSize: 18,
                 fontFamily: 'Playwrite NG Modern',
                 fontWeight: FontWeight.w400,
@@ -335,6 +365,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
   }
 
   Widget _pageSixContent() {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
     // Содержимое второй страницы
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -344,6 +376,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
+          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -352,7 +385,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             AppLocalizations.of(context)!.rule_6,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 28,
               fontStyle: FontStyle.italic,
               fontFamily: 'Josefin Sans',
@@ -368,7 +402,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
               AppLocalizations.of(context)!.description_6,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white,
+                color:
+                    (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
                 fontSize: 18,
                 fontFamily: 'Playwrite NG Modern',
                 fontWeight: FontWeight.w400,
@@ -376,19 +411,22 @@ class _HelloPageState extends ConsumerState<HelloPage> {
               ),
             )),
         OutlinedButton(
-          onPressed: (){
+          onPressed: () {
             ref.read(userProvider.notifier).userReadRules();
             Navigator.pushNamed(context, "/");
-          }, 
+          },
           child: Text(
             AppLocalizations.of(context)!.next,
             style: TextStyle(
-              color: Colors.white,
+              color:
+                  (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
               fontSize: 25,
             ),
           ),
           style: OutlinedButton.styleFrom(
-            foregroundColor: Colors.white, minimumSize: Size(250, 70), // Установите цвет текста кнопки
+            foregroundColor:
+                (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
+            minimumSize: Size(250, 70), // Установите цвет текста кнопки
             side: BorderSide.none, // Убирает границу кнопки
           ),
         ),

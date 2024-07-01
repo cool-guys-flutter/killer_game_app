@@ -13,6 +13,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:killer_game_app/providers/theme.dart';
 
 class DistributionPage extends ConsumerStatefulWidget {
   DistributionPage({super.key});
@@ -28,6 +29,7 @@ class _DistributionPage extends ConsumerState<DistributionPage>
   bool _isFront = true;
   late String name;
   late String target;
+  
 
   @override
   void initState() {
@@ -72,8 +74,9 @@ class _DistributionPage extends ConsumerState<DistributionPage>
 
   @override
   Widget build(BuildContext context) {
+    final themeMode = ref.watch(themeProvider);
     return Scaffold(
-      backgroundColor: Color(0x212121),
+      backgroundColor: (themeMode == ThemeMode.dark ? Colors.white: Color(0x212121)),
       body: GestureDetector(
         child: Center(
           child: SizedBox(
