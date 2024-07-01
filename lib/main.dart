@@ -69,7 +69,7 @@ class _MyApp extends ConsumerState<MyApp> {
         ],
         supportedLocales: [
           Locale('en'), // English
-          Locale('ru'), // Spanish
+          Locale('ru'), // Russian
         ],
       ),
     );
