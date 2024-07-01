@@ -179,6 +179,9 @@ class _DistributionPage extends ConsumerState<DistributionPage>
             ),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 30,
+                ),
                 shape: StadiumBorder(),
                 side: BorderSide(width: 2, color: Colors.white),
               ),
@@ -246,7 +249,7 @@ class _DistributionPage extends ConsumerState<DistributionPage>
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 70,
             ),
             Stack(
               alignment: Alignment.center,
@@ -263,15 +266,21 @@ class _DistributionPage extends ConsumerState<DistributionPage>
                 ),
                 Text(
                   '$target',
-                  style: TextStyle(color: Colors.white, fontSize: 70),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 70,
+                  ),
                 ),
               ],
             ),
             SizedBox(
-              height: 60,
+              height: 70,
             ),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 50,
+                ),
                 shape: StadiumBorder(),
                 side: BorderSide(width: 2, color: Colors.white),
               ),
@@ -293,6 +302,9 @@ class _DistributionPage extends ConsumerState<DistributionPage>
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 60,
             ),
           ],
         ),

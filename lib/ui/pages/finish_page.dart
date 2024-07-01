@@ -25,7 +25,7 @@ class _FinishPage extends ConsumerState<FinishPage> {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           SizedBox(
-            height: 200,
+            height: 240,
           ),
           Text(
             AppLocalizations.of(context)!.game_on,
@@ -37,10 +37,13 @@ class _FinishPage extends ConsumerState<FinishPage> {
             ),
           ),
           SizedBox(
-            height: 300,
+            height: 330,
           ),
           OutlinedButton(
             style: OutlinedButton.styleFrom(
+              padding: EdgeInsets.symmetric(
+                horizontal: 40,
+              ),
               shape: StadiumBorder(),
               side: BorderSide(width: 2, color: Colors.white),
             ),
