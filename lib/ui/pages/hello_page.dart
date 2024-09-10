@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:killer_game_app/ui/pages/main_page.dart';
 import '../../providers/user_provider.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,9 +27,10 @@ class _HelloPageState extends ConsumerState<HelloPage> {
     final themeMode = ref.watch(themeProvider);
     final isDarkMode = themeMode == ThemeMode.dark;
     return Scaffold(
-    appBar: AppBar(
-      backgroundColor: (themeMode == ThemeMode.dark ? Colors.white : Color(0x212121)),
-    ) ,
+      appBar: AppBar(
+        backgroundColor:
+            (themeMode == ThemeMode.dark ? Colors.white : Color(0x212121)),
+      ),
       backgroundColor:
           (themeMode == ThemeMode.dark ? Colors.white : Color(0x212121)),
       body: PageView.builder(
@@ -125,7 +127,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           'assets/images/phone.svg',
           width: 400,
           height: 400,
-          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
+          color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
           semanticsLabel: "Phone",
         ),
         SizedBox(
@@ -176,7 +178,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
-          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
+          color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -226,7 +228,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
-          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
+          color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -276,7 +278,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
-          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
+          color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -326,7 +328,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
-          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
+          color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -376,7 +378,7 @@ class _HelloPageState extends ConsumerState<HelloPage> {
           width: 300,
           height: 300,
           semanticsLabel: "Aim",
-          color:(themeMode == ThemeMode.dark ? Colors.black : Colors.white),
+          color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white),
         ),
         SizedBox(
           width: 329,
@@ -412,8 +414,8 @@ class _HelloPageState extends ConsumerState<HelloPage> {
             )),
         OutlinedButton(
           onPressed: () {
-            ref.read(userProvider.notifier).userReadRules();
-            Navigator.pushNamed(context, "/");
+            // ref.read(userProvider.notifier).userReadRules();
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
           },
           child: Text(
             AppLocalizations.of(context)!.next,

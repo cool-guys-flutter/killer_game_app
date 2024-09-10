@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:killer_game_app/ui/pages/main_page.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -50,7 +51,7 @@ class _FinishPage extends ConsumerState<FinishPage> {
               shape: StadiumBorder(),
               side: BorderSide(width: 2, color: (themeMode == ThemeMode.dark ? Colors.black : Colors.white)),
             ),
-            onPressed: () => Navigator.of(context).pushNamed("/"),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage())),
             child: Text(
               AppLocalizations.of(context)!.finish,
               style: TextStyle(
